@@ -4,7 +4,7 @@ export async function getAllproducts() {
             .then((res) => res.json())
         return productslist;
     } catch (error) {
-        throw Error("Somthing Went Wrong")
+        throw Error(error)
     }
 
 }
