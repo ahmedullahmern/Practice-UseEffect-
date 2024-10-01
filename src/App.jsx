@@ -13,16 +13,18 @@ function App() {
     fetchProducts()
   }, [])
 
-    // useEffect(() => {
-    //   const localSeGetItems = JSON.parse(localStorage.getItem("cart"))
-    //   if (localSeGetItems) {
-    //     setCartItems(...localSeGetItems)
-    //   }
-    // })
+  // useEffect(() => {
+  //   const localSeGetItems = JSON.parse(localStorage.getItem("cart"))
+  //   if (localSeGetItems) {
+  //     setCartItems(...localSeGetItems)
+  //   }
+  // },[])
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems))
-    console.log("cartItems==>", cartItems);
+    if (cartItems.length) {
+      localStorage.setItem("cart", JSON.stringify(cartItems))
+      console.log("cartItems==>", cartItems);
+    }
   }, [cartItems])
 
   const addCardItems = (itema) => {
